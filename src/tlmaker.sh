@@ -29,7 +29,7 @@ ans=$(grep -Ei "name\s*=\s*todoist" profiles.ini)
 out=$?
 if [ $out -eq 0 ]
 then
-    cat profiles.ini | tr '\n' '\r' | sed 's/\[Profile[0-9]*\]\r[Nn]ame\s*=\s*todoist\r[Ii]s[Rr]elative\s*=\s*[0-9]\r[Pp]ath\s*=\s*.*//' | tr '\r' '\n' > profiles.ini.new
+    cat profiles.ini | tr '\n' '\r' | sed 's/\[Profile[0-9]*\]\r[Nn]ame\s*=\s*todoist\r[^\[]*//' | tr '\r' '\n' > profiles.ini.new
     mv profiles.ini.new profiles.ini
     profile=$(find -maxdepth 1 -type d -name "*.todoist")
     out=$?
