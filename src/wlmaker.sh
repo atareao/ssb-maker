@@ -24,7 +24,7 @@ fi
 
 # Check if whatsapp profile exists
 cd "${HOME}/.mozilla/firefox"
-echo $(pwd)
+cp profiles.ini profiles.ini.back
 ans=$(grep -Ei "name\s*=\s*whatsapp" profiles.ini)
 out=$?
 if [ $out -eq 0 ]

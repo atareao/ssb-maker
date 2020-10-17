@@ -24,7 +24,7 @@ fi
 
 # Check if todoist profile exists
 cd "${HOME}/.mozilla/firefox"
-echo $(pwd)
+cp profiles.ini profiles.ini.back
 ans=$(grep -Ei "name\s*=\s*todoist" profiles.ini)
 out=$?
 if [ $out -eq 0 ]
