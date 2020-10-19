@@ -49,7 +49,7 @@ ans=$(grep -Ei "name\s*=\s*whatsapp" profiles.ini)
 out=$?
 if [ $out -eq 0 ]
 then
-    cat profiles.ini | tr '\n' '\r' | sed 's/\[Profile[0-9]*\]\r[Nn]ame\s*=\s*todoist\r[^\[]*//' | tr '\r' '\n' > profiles.ini.new
+    cat profiles.ini | tr '\n' '\r' | sed 's/\[Profile[0-9]*\]\r[Nn]ame\s*=\s*whatsapp\r[^\[]*//' | tr '\r' '\n' > profiles.ini.new
     mv profiles.ini.new profiles.ini
     profile=$(find -maxdepth 1 -type d -name "*.whatsapp")
     out=$?
@@ -66,6 +66,7 @@ fi
 profile=$(find -maxdepth 1 -type d -name "*.whatsapp")
 cd $profile
 echo 'user_pref("browser.ssb.enabled", true);' > prefs.js
+echo 'user_pref("browser.sessionstore.resume_session_once",true);' >> prefs.js
 
 ICONDIR="${HOME}/.local/share/icons"
 if [ ! -d $ICONDIR ]
