@@ -66,6 +66,7 @@ fi
 profile=$(find -maxdepth 1 -type d -name "*.todoist")
 cd $profile
 echo 'user_pref("browser.ssb.enabled", true);' > prefs.js
+echo 'user_pref("browser.sessionstore.resume_session_once",true);' >> prefs.js
 
 ICONDIR="${HOME}/.local/share/icons"
 if [ ! -d $ICONDIR ]
